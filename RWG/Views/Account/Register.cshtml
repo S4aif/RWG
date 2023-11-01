@@ -1,0 +1,25 @@
+﻿<div class="card">
+    <div class="card-body bg-light">
+        <h4 class="card-title">Register</h4>
+
+        <form class="row g-3" method="post" action="@Url.Action("Register", "Account")">
+            <div class="col-md-4">
+                <input type="email" class="form-control" placeholder="Email" name="email" required/>
+            </div>
+
+            <div class="col-md-4">
+                <input type="password" class="form-control" placeholder="Password" name="password" required />
+            </div>
+
+            <div class="col-md-4">
+                <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" required />
+            </div>
+
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary"> Register</button>
+            </div>
+
+        </form>
+
+        </div>
+</div>
