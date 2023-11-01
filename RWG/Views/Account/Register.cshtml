@@ -4,10 +4,12 @@
 
         <form class="row g-3" method="post" action="@Url.Action("Register", "Account")">
             <div class="col-md-4">
-                <input type="email" class="form-control" placeholder="Email" name="email" required/>
+                @* Sets the minimum standard for the email *@
+                <input type="email" class="form-control" placeholder="Email" name="email" required />
             </div>
 
             <div class="col-md-4">
+                @* Sets the minimum standard for the password *@
                 <input type="password" class="form-control" placeholder="Password" name="password" required />
             </div>
 
@@ -21,5 +23,5 @@
 
         </form>
 
-        </div>
+    </div>
 </div>

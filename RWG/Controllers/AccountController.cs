@@ -30,7 +30,7 @@ namespace RWG.Controllers
         [HttpPost] //Retrieves the data entered by the user in the website
         public async Task<IActionResult> Register(RegisterViewModel viewModel)
         {
-            //checks if data provided is valid or not
+            //checks if data provided is valid or not while registering
             if (!ModelState.IsValid)
                 return RedirectToAction("Register");
 
@@ -59,14 +59,16 @@ namespace RWG.Controllers
 
 
         //Login
-        //login
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel viewModel)
         {
+            //checks if data provided is valid or not while logging in
             if (!ModelState.IsValid)
                 return RedirectToAction("Login");
 
+            //checks whether the email entered in the login page matches the one that was registered
             var user = await _userManager.FindByEmailAsync(viewModel.Email);
+            //if the user left it blank, they are going to be sent back to login page again
             if (user == null)
                 return RedirectToAction("Login");
 
@@ -79,6 +81,7 @@ namespace RWG.Controllers
             return RedirectToAction("Login");
         }
 
+        //when a new login happens, it logs out any device that was logged in before 
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
