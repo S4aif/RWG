@@ -2,26 +2,32 @@
     <div class="card-body bg-light">
         <h4 class="card-title">Register</h4>
 
-        <form class="row g-3" method="post" action="@Url.Action("Register", "Account")">
-            <div class="col-md-4">
-                @* Sets the minimum standard for the email *@
-                <input type="email" class="form-control" placeholder="Email" name="email" required />
-            </div>
+    <form class="row g-3" method="post" action="@Url.Action("Register", "Account")">
 
-            <div class="col-md-4">
-                @* Sets the minimum standard for the password *@
-                <input type="password" class="form-control" placeholder="Password" name="password" required />
-            </div>
+        @* using col-md-4 *@
+        <div class="col-md-4">
+            @* email column *@
+            @* Sets the minimum standard for the email *@
+            <input type="email" class="form-control" placeholder="Email" name="email" required />
+        </div>
 
-            <div class="col-md-4">
-                <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" required />
-            </div>
+        <div class="col-md-4">
+            @* password column *@
+            @* Sets the minimum standard for the password *@
+            <input type="password" class="form-control" placeholder="Password" name="password" required />
+        </div>
 
-            <div class="col-md-6">
-                <button type="submit" class="btn btn-primary"> Register</button>
-            </div>
+        @* confirm password column *@
+        <div class="col-md-4">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" required />
+        </div>
 
-        </form>
+        @* Register/ submit response button *@
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-primary"> Register</button>
+        </div>
+
+    </form>
 
     </div>
 </div>
