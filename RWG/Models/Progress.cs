@@ -4,11 +4,10 @@ namespace RWG.Models
 	public class Progress
 	{
 		public int Id { get; set; }
-        public int set { get; set; }
-        public int reps { get; set; }
-        public int weight { get; set; }
-        public DateOnly date { get; set; }
-        public string day { get; set; }
+        public int Set { get; set; }
+        public int Reps { get; set; }
+        public int Weight { get; set; }
+        public DateOnly Date { get; set; }
     }
 }
 

@@ -1,14 +1,15 @@
 ﻿using System;
 namespace RWG.Models
 {
-	public class workoutExercise
+	public class WorkoutExercise
 	{
 		public int Id { get; set; }
-        public int set { get; set; }
-        public int reps { get; set; }
-        public int weight { get; set; }
-        public Exercise exercise { get; set; }
-        public Workout workout { get; set; }
+        public int Set { get; set; }
+        public int Reps { get; set; }
+        public int Weight { get; set; }
+        //many to one
+        public Exercise Exercise { get; set; }
+        public Workout Workout { get; set; }
     }
 }
 
