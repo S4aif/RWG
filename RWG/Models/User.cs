@@ -7,8 +7,10 @@ namespace RWG.Models
 	{
         public string FirstName { get; set; }
         public string Surname { get; set; }
+        //One to many relationship, User to Workout
         public List<Workout> Workouts { get; set; }
-		public List<Progress> Progresses { get; set; }
+        //One to many relationship, User to Progress
+        public List<Progress> Progresses { get; set; }
 	}
 }
 

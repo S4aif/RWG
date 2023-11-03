@@ -5,7 +5,7 @@ namespace RWG.Models
 	{
         public int Id { get; set; }
         public string Name { get; set; }
-        //one to many
+        //One to many relationship, Workout to WorkoutExercise
         public List<WorkoutExercise> WorkoutExercises { get; set; }
     }
 }
