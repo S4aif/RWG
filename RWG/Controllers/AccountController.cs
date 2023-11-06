@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RWG.Models;
@@ -9,6 +10,7 @@ using RWG.Models;
 
 namespace RWG.Controllers
 {
+    //[Authorize]
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
@@ -25,7 +27,7 @@ namespace RWG.Controllers
         {
             return View();
         }
-
+        
         //Register
         [HttpPost] //Retrieves the data entered by the user in the website
         public async Task<IActionResult> Register(RegisterViewModel viewModel)
@@ -56,7 +58,7 @@ namespace RWG.Controllers
         {
             return View();
         }
-
+        
 
         //Login
         [HttpPost]
