@@ -45,6 +45,9 @@ namespace RWG.Controllers
             user.UserName = viewModel.Email;
             user.Email = viewModel.Email;
 
+            user.FirstName = viewModel.FirstName;
+            user.Surname = viewModel.Surname;
+
             //If all checks have succeeded then User is redirected to Login page
             var result = await _userManager.CreateAsync(user, viewModel.Password);
             if (result.Succeeded)

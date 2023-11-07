@@ -14,13 +14,24 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.24" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.24" />
+    <PackageReference Include="NonFactors.Grid.Mvc6" Version="6.2.4" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Context\" />
     <None Remove="Views\Account\" />
+    <None Remove="Views\Shared\MvcGrid\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\Shared\MvcGrid\" />
+    <Folder Include="wwwroot\css\mvc-grid\" />
+    <Folder Include="wwwroot\css\mvc-grid\fonts\" />
+    <Folder Include="wwwroot\js\mvc-grid\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\mvc-grid\" />
+    <Content Remove="wwwroot\css\mvc-grid\fonts\" />
+    <Content Remove="wwwroot\js\mvc-grid\" />
   </ItemGroup>
 </Project>
