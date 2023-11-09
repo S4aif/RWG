@@ -9,6 +9,12 @@ namespace RWG.Models
 		public string Description { get; set; }
 		//One to many relationship, Exercise to WorkoutExercise
 		public List<WorkoutExercise> WorkoutExercises { get; set; }
-	}
-}
+
+    }
+
+    }
+
+
+
+
 

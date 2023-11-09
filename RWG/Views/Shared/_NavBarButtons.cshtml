@@ -3,28 +3,34 @@
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </li>
 
         @* adds a logout option to the navigation bar when the user logs in *@
         @if (User!.Identity!.IsAuthenticated)
         {
+            @* sends login and register buttons to right side of the navigation bar*@
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                <a class="btn btn-danger" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
             </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        </div>
+            }
+            else
+            {
+            @* sends login and register buttons to right side of the navigation bar*@
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+            <li class="nav-item me-2">
+                <a class="btn btn-success" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-            </li>
-        }
+</div>
 
 
 
-    </ul>
+            <li class="nav-item me-2">
+                <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+            </li>
+            }
+
+
+
+        </ul>
 </div

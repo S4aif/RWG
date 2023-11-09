@@ -1,20 +1,30 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using RWG.Context;
 using RWG.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace RWG.Controllers;
 
 public class HomeController : Controller
 {
+    //read only because i dont want it to make any changes
     private readonly ILogger<HomeController> _logger;
+    private readonly DatabaseContext _context;
+    private readonly UserManager<User> _userManager;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(DatabaseContext context, UserManager<User> userManager)
     {
-        _logger = logger;
+        _context = context;
+        _userManager = userManager;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
+       // User user = await _userManager.FindByNameAsync(User!.Identity!.Name);
+
         return View();
     }
 
@@ -28,6 +38,8 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+
 
    /* public ActionResult Index()
     {

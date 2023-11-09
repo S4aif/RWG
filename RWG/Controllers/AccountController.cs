@@ -10,7 +10,7 @@ using RWG.Models;
 
 namespace RWG.Controllers
 {
-    //[Authorize]
+    
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
@@ -27,7 +27,7 @@ namespace RWG.Controllers
         {
             return View();
         }
-        
+
         //Register
         [HttpPost] //Retrieves the data entered by the user in the website
         public async Task<IActionResult> Register(RegisterViewModel viewModel)
@@ -84,6 +84,9 @@ namespace RWG.Controllers
                 return RedirectToAction("Index", "Home");
 
             return RedirectToAction("Login");
+
+            //user.FirstName = viewModel.FirstName;
+            //user.Surname = viewModel.Surname;
         }
 
         //when a new login happens, it logs out any device that was logged in before 
