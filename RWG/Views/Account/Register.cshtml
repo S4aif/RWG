@@ -4,37 +4,92 @@
 
 
 
-        <form class="row g-3" method="post" action="@Url.Action("Register", "Account")">
+        <form class="row g-3 needs-validation" method="post" action="@Url.Action("Register", "Account")" noValidate>
             @* First name*@
             <div class="mb-3">
                 <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" placeholder="FirstName" name="firstName" required>
+                <input type="text" class="form-control" id="firstName" name="firstName" required />
+
+                @*Validates if the user have entered something in the field*@
+                <div class="valid-feedback">
+                    Looks Good!
+                </div>
+
+                @*Else it asks the user to enter their First Name*@
+                <div class="invalid-feedback">
+                    Please enter your First Name
+                </div>
+
             </div>
 
             @*Surname*@
-            <div class="mb-3">
-                <label for="surname" class="form-label">Surname</label>
-                <input type="text" class="form-control" placeholder="Surname" name="surname" required>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" class="form-control" id="surname" name="surname" aria-describedby="surname" required />
+
+            @*Validates if the user have entered something in the field*@
+            <div class="valid-feedback">
+                Looks Good!
             </div>
+
+            @*Else it asks the user to enter their Surname*@
+            <div class="invalid-feedback">
+                Please enter your Surname
+            </div>
+
+        </div>
 
             @*Email address*@
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" placeholder="Email" name="email" required>
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" placeholder="Email" name="email" required />
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+            @*Validates the Email address form*@
+            <div class="valid-feedback">
+                Looks Good!
             </div>
+
+            @*If email form is inncorrect, it tells the user to enter a valid email address*@
+            <div class="invalid-feedback">
+                Please enter a valid Email
+            </div>
+
+        </div>
 
             @*Password*@
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" placeholder="Password" name="password" required>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Password" name="password" required />
+
+            @* Validates the password if it is correct *@
+            <div class="valid-feedback">
+                Looks Good!
             </div>
 
-            @*Confirm password*@
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" required>
+            @*If password form is inncorrect, it tells the user to enter a valid Password*@
+            <div class="invalid-feedback">
+                Please enter a valid Password
             </div>
+
+        </div>
+
+            @*Confirm password*@
+        <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirmPassword" required />
+
+            @* Validates the same password if it is identical *@
+            <div class="valid-feedback">
+                Looks Good!
+            </div>
+
+            @*If password form is inncorrect, it tells the user to enter a valid Password*@
+            <div class="invalid-feedback">
+                Please re-enter the same password
+            </div>
+
+        </div>
 
             <div class="col-md-6">
                 <button type="submit" class="btn btn-primary"> Register</button>

@@ -1,29 +1,54 @@
-﻿
-    <div class="card">
-        <div class="card-body bg-light">
-            <h4 class="card-title">Login</h4>
+﻿@model LoginViewModel
 
-            <form class="row g-3" method="post" action="@Url.Action("Login", "Account")">
+<div class="card">
+    <div class="card-body bg-light">
+        <h4 class="card-title">Login</h4>
 
-                <div class="col-md-6">
-                    @*email column*@
-                    <input type="email" class="form-control" placeholder="Email" name="email" required />
+        <form class="row g-3" method="post" action="@Url.Action("Login", "Account")">
+
+            <div class="col-md-6">
+                @*email column*@
+                <input type="email" class="form-control" placeholder="Email" name="email" required />
+
+                @*Validates the Email address form*@
+                <div class="valid-feedback">
+                    Looks Good!
                 </div>
 
-                <div class="col-md-6">
-                     @*password column*@
-                    <input type="password" class="form-control" placeholder="Password" name="password" required />
+                @*If email form is inncorrect, it tells the user to enter a valid email address*@
+                <div class="invalid-feedback">
+                    Please enter a valid Email
                 </div>
 
-                 @*Login submit response button*@
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+
+            <div class="col-md-6">
+                @*password column*@
+                <input type="password" class="form-control" placeholder="Password" name="password" required />
+
+                @* Validates the password if it is correct *@
+                <div class="valid-feedback">
+                    Looks Good!
                 </div>
 
-            </form>
+                @*If password form is inncorrect, it tells the user to enter a valid Password*@
+                <div class="invalid-feedback">
+                    Please enter a valid Password
+                </div>
 
-        </div>
+            </div>
+
+            @*Login submit response button*@
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button>
+            </div>
+
+        </form>
+
     </div>
+</div>
 
 
 

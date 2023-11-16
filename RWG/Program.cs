@@ -8,8 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>();
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
+builder.Services.AddScoped<SeedExtension>();
 
 var app = builder.Build();
+//seed the database
+using var scope = app.Services.CreateScope();
+var seeder = scope.ServiceProvider.GetService<SeedExtension>();
+await seeder!.SeedAsync();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
