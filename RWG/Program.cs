@@ -10,6 +10,8 @@ builder.Services.AddDbContext<DatabaseContext>();
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<SeedExtension>();
 
+
+
 var app = builder.Build();
 //seed the database
 using var scope = app.Services.CreateScope();

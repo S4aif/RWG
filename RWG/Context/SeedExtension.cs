@@ -34,7 +34,7 @@ namespace RWG.Context
             user.FirstName = "Saif";
             user.Surname = "TheLegend";
 
-			var password = "S4aif2447!";
+			var password = " ";
 			_ = _userManager.CreateAsync(user, password);
 
 
@@ -188,6 +188,7 @@ namespace RWG.Context
 
 /*----------------------------------------------------------------------------*/
 
+            
             //Back Exercises
 
 
@@ -319,7 +320,7 @@ namespace RWG.Context
 
             /*----------------------------------------------------------------------------*/
 
-
+            
             //Arms Exercises
 
             //seed database with arms exercises
@@ -327,6 +328,8 @@ namespace RWG.Context
             arms1.Name = "Bicep curl";
             //to filter home workout or gym or both
             arms1.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms1.Video = @"https://www.youtube.com/shorts/2jpteC44QKg";
             _context.Exercises.Add(arms1);
 
             //seed database with arms exercises
@@ -334,13 +337,16 @@ namespace RWG.Context
             arms2.Name = "Hammer curl";
             //to filter home workout or gym or both
             arms2.Description = "Gym";
-            arms1.Video = @"";
+            //The video link to guide the user how to perform the exercise
+            arms2.Video = @"https://youtube.com/shorts/6fcemy1cjkI?si=7esKgLxS2dXennAw";
             _context.Exercises.Add(arms2);
 
             var arms3 = new Exercise();
             arms3.Name = "Tricep dips";
             //to filter home workout or gym or both
             arms3.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms3.Video = @"https://youtube.com/shorts/36krJZYK_dU?si=HmQfQxYHWMMVKhRW";
             _context.Exercises.Add(arms3);
 
             //seed database with arms exercises
@@ -348,6 +354,8 @@ namespace RWG.Context
             arms4.Name = "Overhead tricep extension";
             //to filter home workout or gym or both
             arms4.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms4.Video = @"https://youtube.com/shorts/Q3bO1Fh4734?si=ft7sFnBbbeVtVwDm";
             _context.Exercises.Add(arms4);
 
             //seed database with arms exercises
@@ -355,6 +363,8 @@ namespace RWG.Context
             arms5.Name = "Cable tricep kickback";
             //to filter home workout or gym or both
             arms5.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms5.Video = @"https://youtube.com/shorts/NIp8MdPKTaI?si=YzxDmanCKwzx6bK5";
             _context.Exercises.Add(arms5);
 
             //seed database with arms exercises
@@ -362,6 +372,8 @@ namespace RWG.Context
             arms6.Name = "Tricep pushdown";
             //to filter home workout or gym or both
             arms6.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms6.Video = @"https://youtube.com/shorts/NvZKjiZ8NYc?si=kNJXkITZ5kdGAoS0";
             _context.Exercises.Add(arms6);
 
             //seed database with arms exercises
@@ -369,6 +381,8 @@ namespace RWG.Context
             arms7.Name = "Diamond pushups";
             //to filter home workout or gym or both
             arms7.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            arms7.Video = @"https://youtube.com/shorts/PPTj-MW2tcs?si=Jl3hH79IcdIspm2Z";
             _context.Exercises.Add(arms7);
 
             //seed database with arms exercises
@@ -376,6 +390,8 @@ namespace RWG.Context
             arms8.Name = "Barbell curl";
             //to filter home workout or gym or both
             arms8.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms8.Video = @"https://youtube.com/shorts/N6paU6TGFWU?si=piXj1oNCvWzp6-2i";
             _context.Exercises.Add(arms8);
 
             //seed database with arms exercises
@@ -383,6 +399,8 @@ namespace RWG.Context
             arms9.Name = "ez bar curl";
             //to filter home workout or gym or both
             arms9.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms9.Video = @"https://www.youtube.com/shorts/RkcYuubJR54";
             _context.Exercises.Add(arms9);
 
             //seed database with arms exercises
@@ -390,6 +408,8 @@ namespace RWG.Context
             arms10.Name = "Close grip bench press";
             //to filter home workout or gym or both
             arms10.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms10.Video = @"https://www.youtube.com/shorts/43rg7fBNP2w";
             _context.Exercises.Add(arms10);
 
             //seed database with arms exercises
@@ -397,6 +417,8 @@ namespace RWG.Context
             arms11.Name = "Dumbbell preacher curls";
             //to filter home workout or gym or both
             arms11.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms11.Video = @"https://www.youtube.com/shorts/7oSbBVx73_c";
             _context.Exercises.Add(arms11);
 
             //seed database with arms exercises
@@ -404,24 +426,30 @@ namespace RWG.Context
             arms12.Name = "Skull crusher";
             //to filter home workout or gym or both
             arms12.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            arms12.Video = @"https://www.youtube.com/shorts/gTrlbuuMufQ";
             _context.Exercises.Add(arms12);
 
             var arms13 = new Exercise();
             arms13.Name = "bench dips";
             //to filter home workout or gym or both
             arms13.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            arms13.Video = @"https://www.youtube.com/shorts/S8vL5DK04fU";
             _context.Exercises.Add(arms13);
 
             var arms14 = new Exercise();
             arms14.Name = "Hindu Push ups";
             //to filter home workout or gym or both
             arms14.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            arms14.Video = @"https://www.youtube.com/shorts/vB6ZR_wl9bQ";
             _context.Exercises.Add(arms14);
 
 
             /*----------------------------------------------------------------------------*/
 
-
+            
             //Shoulders Exercises
 
 
@@ -430,6 +458,8 @@ namespace RWG.Context
             shoulders1.Name = "Overhead shoulder press";
             //to filter home workout or gym or both
             shoulders1.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders1.Video = @"https://www.youtube.com/shorts/DN3WXJlB1Q4";
             _context.Exercises.Add(shoulders1);
 
             //seed database with shoulders exercises
@@ -437,6 +467,8 @@ namespace RWG.Context
             shoulders2.Name = "Rear delt raises";
             //to filter home workout or gym or both
             shoulders2.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders2.Video = @"https://www.youtube.com/shorts/9bERtRKo4UY";
             _context.Exercises.Add(shoulders2);
 
             //seed database with shoulders exercises
@@ -444,6 +476,8 @@ namespace RWG.Context
             shoulders3.Name = "Dumbbell Lateral Raises";
             //to filter home workout or gym or both
             shoulders3.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders3.Video = @"https://www.youtube.com/shorts/JIhbYYA1Q90";
             _context.Exercises.Add(shoulders3);
 
             //seed database with shoulders exercises
@@ -451,6 +485,8 @@ namespace RWG.Context
             shoulders4.Name = "Single arm cable lateral raise";
             //to filter home workout or gym or both
             shoulders4.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders4.Video = @"https://www.youtube.com/shorts/1AmmsXlf8MU";
             _context.Exercises.Add(shoulders4);
 
             //seed database with shoulders exercises
@@ -458,6 +494,8 @@ namespace RWG.Context
             shoulders5.Name = "Dumbbell front Raise";
             //to filter home workout or gym or both
             shoulders5.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders5.Video = @"https://www.youtube.com/shorts/yHx8wPv4RPo";
             _context.Exercises.Add(shoulders5);
 
             //seed database with shoulders exercises
@@ -465,6 +503,8 @@ namespace RWG.Context
             shoulders6.Name = "Barbell front raise";
             //to filter home workout or gym or both
             shoulders6.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders6.Video = @"https://www.youtube.com/shorts/PqAUOn-RmFA";
             _context.Exercises.Add(shoulders6);
 
             //seed database with shoulders exercises
@@ -472,6 +512,8 @@ namespace RWG.Context
             shoulders7.Name = "Upright row";
             //to filter home workout or gym or both
             shoulders7.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders7.Video = @"https://www.youtube.com/shorts/KAEE2N4YnBE";
             _context.Exercises.Add(shoulders7);
 
             //seed database with shoulders exercises
@@ -479,6 +521,8 @@ namespace RWG.Context
             shoulders8.Name = "Face pull";
             //to filter home workout or gym or both
             shoulders8.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders8.Video = @"https://www.youtube.com/shorts/LJN-sT_6OYY";
             _context.Exercises.Add(shoulders8);
 
             //seed database with shoulders exercises
@@ -486,6 +530,8 @@ namespace RWG.Context
             shoulders9.Name = "Arnold press";
             //to filter home workout or gym or both
             shoulders9.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders9.Video = @"https://www.youtube.com/shorts/ppVR9oF32K0";
             _context.Exercises.Add(shoulders9);
 
             //seed database with shoulders exercises
@@ -493,6 +539,8 @@ namespace RWG.Context
             shoulders10.Name = "Reverse Machine flyes";
             //to filter home workout or gym or both
             shoulders10.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            shoulders10.Video = @"https://www.youtube.com/shorts/TxoDSfcObdU";
             _context.Exercises.Add(shoulders10);
 
             //seed database with shoulders exercises
@@ -500,6 +548,8 @@ namespace RWG.Context
             shoulders11.Name = "Pike push ups";
             //to filter home workout or gym or both
             shoulders11.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            shoulders11.Video = @"https://www.youtube.com/shorts/RmKUhj62_9c";
             _context.Exercises.Add(shoulders11);
 
             //seed database with shoulders exercises
@@ -507,6 +557,8 @@ namespace RWG.Context
             shoulders12.Name = "wall assisted handstand push ups";
             //to filter home workout or gym or both
             shoulders12.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            shoulders12.Video = @"https://www.youtube.com/shorts/6446ZMlWpqI";
             _context.Exercises.Add(shoulders12);
 
             //seed database with shoulders exercises
@@ -514,6 +566,8 @@ namespace RWG.Context
             shoulders13.Name = "Handstand push ups";
             //to filter home workout or gym or both
             shoulders13.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            shoulders13.Video = @"https://www.youtube.com/shorts/q5sbqedk5tc";
             _context.Exercises.Add(shoulders13);
 
 
@@ -522,10 +576,12 @@ namespace RWG.Context
             shoulders14.Name = "wall assisted handstand Holds";
             //to filter home workout or gym or both
             shoulders14.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            shoulders14.Video = @"https://www.youtube.com/shorts/xBM-qIgkk6E";
             _context.Exercises.Add(shoulders14);
 
 /*----------------------------------------------------------------------------*/
-
+            
             //Legs Exercises
 
 
@@ -534,6 +590,8 @@ namespace RWG.Context
             legs1.Name = "bodyweight Squats";
             //to filter home workout or gym or both
             legs1.Description = "Home";
+            //The video link to guide the user how to perform the exercise
+            legs1.Video = @"https://www.youtube.com/shorts/I7Nk1RMtcLs";
             _context.Exercises.Add(legs1);
 
             //seed database with legs exercises
@@ -541,6 +599,8 @@ namespace RWG.Context
             legs2.Name = "Barbell back squat";
             //to filter home workout or gym or both
             legs2.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            legs2.Video = @"https://www.youtube.com/shorts/gslEzVggur8";
             _context.Exercises.Add(legs2);
 
             //seed database with legs exercises
@@ -548,6 +608,8 @@ namespace RWG.Context
             legs3.Name = "Barbell front squat";
             //to filter home workout or gym or both
             legs3.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            legs3.Video = @"https://www.youtube.com/shorts/yq7MQCWMgg8";
             _context.Exercises.Add(legs3);
 
             //seed database with legs exercises
@@ -555,6 +617,8 @@ namespace RWG.Context
             legs4.Name = "leg press";
             //to filter home workout or gym or both
             legs4.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            legs4.Video = @"https://www.youtube.com/shorts/ahaJTts1f3s";
             _context.Exercises.Add(legs4);
 
             //seed database with legs exercises
@@ -562,6 +626,8 @@ namespace RWG.Context
             legs5.Name = "leg extention";
             //to filter home workout or gym or both
             legs5.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            legs5.Video = @"https://www.youtube.com/shorts/D1Zn0mBw4DE";
             _context.Exercises.Add(legs5);
 
             //seed database with legs exercises
@@ -569,6 +635,8 @@ namespace RWG.Context
             legs6.Name = "hamstring curl";
             //to filter home workout or gym or both
             legs6.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            legs6.Video = @"https://www.youtube.com/shorts/HeNjxoJhyow";
             _context.Exercises.Add(legs6);
 
             //seed database with legs exercises
@@ -576,6 +644,8 @@ namespace RWG.Context
             legs7.Name = "split squat";
             //to filter home workout or gym or both
             legs7.Description = "Both";
+            //The video link to guide the user how to perform the exercise
+            legs7.Video = @"https://www.youtube.com/shorts/bwhl_9jN_3o";
             _context.Exercises.Add(legs7);
 
             //seed database with legs exercises
@@ -583,6 +653,8 @@ namespace RWG.Context
             legs8.Name = "Dumbbell romanian deadlift";
             //to filter home workout or gym or both
             legs8.Description = "Gym";
+            //The video link to guide the user how to perform the exercise
+            legs8.Video = @"https://www.youtube.com/shorts/eHLuROg0FSI";
             _context.Exercises.Add(legs8);
 
             //seed database with legs exercises
@@ -590,6 +662,8 @@ namespace RWG.Context
             legs9.Name = "calf raises";
             //to filter home workout or gym or both
             legs9.Description = "Both";
+            //The video link to guide the user how to perform the exercise
+            legs9.Video = @"https://www.youtube.com/shorts/fOfPwmb5FXU";
             _context.Exercises.Add(legs9);
 
             //seed database with legs exercises
@@ -597,7 +671,11 @@ namespace RWG.Context
             legs10.Name = "Bulgarian squat";
             //to filter home workout or gym or both
             legs10.Description = "Both";
+            //The video link to guide the user how to perform the exercise
+            legs10.Video = @"https://www.youtube.com/shorts/uODWo4YqbT8";
             _context.Exercises.Add(legs10);
+            
+            
 
             _context.SaveChanges();
             
