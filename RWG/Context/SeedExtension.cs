@@ -39,7 +39,34 @@ namespace RWG.Context
 
 
 /*----------------------------------------------------------------------------*/
-               //Chest Exercises
+            // Injury groups
+
+            var legInjury = new Injury();
+            legInjury.Name = "Leg injury";
+            _context.Injuries.Add(legInjury);
+    
+            var shoulderInjury = new Injury();
+            shoulderInjury.Name = "Shoulder injury";
+            _context.Injuries.Add(shoulderInjury);
+
+            var bicepInjury = new Injury();
+            bicepInjury.Name = "Bicep Injury";
+            _context.Injuries.Add(bicepInjury);
+
+            var tricepInjury = new Injury();
+            tricepInjury.Name = "Tricep injury";
+            _context.Injuries.Add(tricepInjury);
+
+            var chestInjury = new Injury();
+            chestInjury.Name = "Chest injury";
+            _context.Injuries.Add(chestInjury);
+
+            var backInjury = new Injury();
+            backInjury.Name = "Back injury";
+            _context.Injuries.Add(backInjury);
+/*----------------------------------------------------------------------------*/
+
+            //Chest Exercises
 
 
             //seed database with chest exercises
@@ -49,6 +76,8 @@ namespace RWG.Context
             chest1.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest1.Video = @"https://youtube.com/shorts/VXjPjzEjRSU?si=C5Yn8pI0lElfkyKf";
+            //Adds exercise to Injury group
+            chest1.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest1);
 
             //seed database with chest exercises
@@ -58,6 +87,8 @@ namespace RWG.Context
             chest2.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest2.Video = @"https://youtube.com/shorts/1V3vpcaxRYQ?si=lmAVMrjXgiP389a1";
+            //Adds exercise to Injury group
+            chest2.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest2);
 
             //seed database with chest exercises
@@ -67,6 +98,8 @@ namespace RWG.Context
             chest3.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest3.Video = @"https://youtube.com/shorts/cq-4gME3IFY?si=BHDVCDVtDf4qdCQo";
+            //Adds exercise to Injury group
+            chest3.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest3);
 
             //seed database with chest exercises
@@ -76,6 +109,8 @@ namespace RWG.Context
             chest4.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest4.Video = @"https://youtube.com/shorts/Gruq177Psnk?si=VYdmiTfFC_OC57R5";
+            //Adds exercise to Injury group
+            chest4.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest4);
 
             //seed database with chest exercises
@@ -85,6 +120,8 @@ namespace RWG.Context
             chest5.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest5.Video = @"https://youtube.com/shorts/J49byaRpuMw?si=uxqNo3VoeGO-2QRt";
+            //Adds exercise to Injury group
+            chest5.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest5);
 
             //seed database with chest exercises
@@ -94,6 +131,8 @@ namespace RWG.Context
             chest6.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest6.Video = @"https://youtube.com/shorts/6NM7oplcqtU?si=hb8A-NdtgGJ0rOS3";
+            //Adds exercise to Injury group
+            chest6.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest6);
 
             //seed database with chest exercises
@@ -103,6 +142,8 @@ namespace RWG.Context
             chest7.Description = "Both";
             //The video link to guide the user how to perform the exercise
             chest7.Video = @"https://youtube.com/shorts/1_4OICx2WrY?si=MGlo_R_ihG9B9DtK";
+            //Adds exercise to Injury group
+            chest7.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest7);
 
             //seed database with chest exercises
@@ -112,6 +153,8 @@ namespace RWG.Context
             chest8.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest8.Video = @"https://youtube.com/shorts/NEXwXAJ3D2A?si=jr32Bls623u7Ijd5";
+            //Adds exercise to Injury group
+            chest8.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest8);
 
             //seed database with chest exercises
@@ -121,6 +164,8 @@ namespace RWG.Context
             chest9.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest9.Video = @"https://youtube.com/shorts/VYC2QZEOIUI?si=LwYUMgJSih-1ALEZ";
+            //Adds exercise to Injury group
+            chest9.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest9);
 
             //seed database with chest exercises
@@ -130,6 +175,8 @@ namespace RWG.Context
             chest10.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest10.Video = @"https://youtube.com/shorts/kHs4cHcu5b0?si=OHlbaboSEtkeGnxC";
+            //Adds exercise to Injury group
+            chest10.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest10);
 
             //seed database with chest exercises
@@ -139,6 +186,8 @@ namespace RWG.Context
             chest11.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest11.Video = @"https://youtube.com/shorts/ZWa8v57fCZ8?si=3IfdnETw8ytt1UBj";
+            //Adds exercise to Injury group
+            chest11.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest11);
 
             //seed database with chest exercises
@@ -148,6 +197,8 @@ namespace RWG.Context
             chest12.Description = "Home";
             //The video link to guide the user how to perform the exercise
             chest12.Video = @"https://youtube.com/shorts/yQEx9OC2C3E?si=Rt5OvAB3-T6mp2Ni";
+            //Adds exercise to Injury group
+            chest12.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest12);
 
             //seed database with chest exercises
@@ -157,6 +208,8 @@ namespace RWG.Context
             chest13.Description = "Home";
             //The video link to guide the user how to perform the exercise
             chest13.Video = @"https://youtube.com/shorts/Mc-Kdwnx_M8?si=wU-N6hE17wdB7k5I";
+            //Adds exercise to Injury group
+            chest13.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest13);
 
             //seed database with chest exercises
@@ -166,6 +219,8 @@ namespace RWG.Context
             chest14.Description = "Home";
             //The video link to guide the user how to perform the exercise
             chest14.Video = @"https://youtube.com/shorts/dcV-ATSeryA?si=DdWr-IBkB1uDZ48l";
+            //Adds exercise to Injury group
+            chest14.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest14);
 
             //seed database with chest exercises
@@ -175,6 +230,8 @@ namespace RWG.Context
             chest15.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             chest15.Video = @"https://youtube.com/shorts/raU5C9bWo9U?si=RMbkoOcXx8YeZCyg";
+            //Adds exercise to Injury group
+            chest15.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest15);
 
             //seed database with chest exercises
@@ -184,6 +241,8 @@ namespace RWG.Context
             chest16.Description = "Home";
             //The video link to guide the user how to perform the exercise
             chest16.Video = @"https://youtube.com/shorts/jXNILmxCVxU?si=_LHBdBnxK7uubwpk";
+            //Adds exercise to Injury group
+            chest16.Injuries.Add(chestInjury);
             _context.Exercises.Add(chest16);
 
 /*----------------------------------------------------------------------------*/
@@ -199,6 +258,8 @@ namespace RWG.Context
             back1.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back1.Video = @"https://youtube.com/shorts/GDrJlDB0isk?si=1VUE-SH7hehT-PBW";
+            //Adds exercise to Injury group
+            back1.Injuries.Add(backInjury);
             _context.Exercises.Add(back1);
 
             //seed database with back exercises
@@ -208,6 +269,8 @@ namespace RWG.Context
             back2.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back2.Video = @"https://youtube.com/shorts/77bPLrsMwiQ?si=5agNaukHK4AzJwiP";
+            //Adds exercise to Injury group
+            back2.Injuries.Add(backInjury);
             _context.Exercises.Add(back2);
 
             //seed database with back exercises
@@ -217,6 +280,8 @@ namespace RWG.Context
             back3.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back3.Video = @"https://youtube.com/shorts/DgyslsszCQ0?si=vviR1Nk5RVZqf_Cu";
+            //Adds exercise to Injury group
+            back3.Injuries.Add(backInjury);
             _context.Exercises.Add(back3);
 
             //seed database with back exercises
@@ -226,6 +291,8 @@ namespace RWG.Context
             back4.Description = "Both";
             //The video link to guide the user how to perform the exercise
             back4.Video = @"https://youtube.com/shorts/dvG8B2OjfWk?si=7hDRSHTXondvAYM3";
+            //Adds exercise to Injury group
+            back4.Injuries.Add(backInjury);
             _context.Exercises.Add(back4);
 
             //seed database with back exercises
@@ -235,6 +302,8 @@ namespace RWG.Context
             back5.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back5.Video = @"https://youtube.com/shorts/z7C7PxVDAD0?si=Xt0OP8wxC_N5Cdpq";
+            //Adds exercise to Injury group
+            back5.Injuries.Add(backInjury);
             _context.Exercises.Add(back5);
 
             //seed database with back exercises
@@ -244,6 +313,8 @@ namespace RWG.Context
             back6.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back6.Video = @"https://youtube.com/shorts/raU5C9bWo9U?si=RMbkoOcXx8YeZCyg";
+            //Adds exercise to Injury group
+            back6.Injuries.Add(backInjury);
             _context.Exercises.Add(back6);
 
             //seed database with back exercises
@@ -253,6 +324,8 @@ namespace RWG.Context
             back7.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back7.Video = @"https://youtube.com/shorts/1_E77qhMpkE?si=zeKzhZ_3TEAeo3S4";
+            //Adds exercise to Injury group
+            back7.Injuries.Add(backInjury);
             _context.Exercises.Add(back7);
 
             //seed database with back exercises
@@ -262,6 +335,8 @@ namespace RWG.Context
             back8.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back8.Video = @"https://youtube.com/shorts/R3FLhX81MYg?si=_o-UNxxV6TeePf0R";
+            //Adds exercise to Injury group
+            back8.Injuries.Add(backInjury);
             _context.Exercises.Add(back8);
 
             //seed database with back exercises
@@ -271,6 +346,8 @@ namespace RWG.Context
             back9.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back9.Video = @"https://youtube.com/shorts/MlqHEfydPpE?si=3oZzLpvmwRQJmRNY";
+            //Adds exercise to Injury group
+            back9.Injuries.Add(backInjury);
             _context.Exercises.Add(back9);
 
             //seed database with back exercises
@@ -280,6 +357,8 @@ namespace RWG.Context
             back10.Description = "Both";
             //The video link to guide the user how to perform the exercise
             back10.Video = @"https://youtube.com/shorts/NwrJk3AWX50?si=YvjkI3X9UIIlRnkQ";
+            //Adds exercise to Injury group
+            back10.Injuries.Add(backInjury);
             _context.Exercises.Add(back10);
 
             //seed database with back exercises
@@ -289,6 +368,8 @@ namespace RWG.Context
             back11.Description = "Home";
             //The video link to guide the user how to perform the exercise
             back11.Video = @"https://youtube.com/shorts/KTWWh3GsyYw?si=J-2YSzIW81zskB2M";
+            //Adds exercise to Injury group
+            back11.Injuries.Add(backInjury);
             _context.Exercises.Add(back11);
 
             //seed database with back exercises
@@ -298,6 +379,8 @@ namespace RWG.Context
             back12.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back12.Video = @"https://youtube.com/shorts/LJN-sT_6OYY?si=0dx1zDo8HshfOgvI";
+            //Adds exercise to Injury group
+            back12.Injuries.Add(backInjury);
             _context.Exercises.Add(back12);
 
             //seed database with back exercises
@@ -307,6 +390,8 @@ namespace RWG.Context
             back13.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back13.Video = @"https://youtube.com/shorts/8c23NBbwLBc?si=MFsv37P6mkWnyu1l";
+            //Adds exercise to Injury group
+            back13.Injuries.Add(backInjury);
             _context.Exercises.Add(back13);
 
             //seed database with back exercises
@@ -316,12 +401,15 @@ namespace RWG.Context
             back14.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             back14.Video = @"https://youtube.com/shorts/wYy32uk4Bu8?si=8k2YE6LBcdEvZI_P";
+            //Adds exercise to Injury group
+            back14.Injuries.Add(backInjury);
             _context.Exercises.Add(back14);
 
-            /*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
             
             //Arms Exercises
+
 
             //seed database with arms exercises
             var arms1 = new Exercise();
@@ -330,6 +418,8 @@ namespace RWG.Context
             arms1.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms1.Video = @"https://www.youtube.com/shorts/2jpteC44QKg";
+            //Adds exercise to Injury group
+            arms1.Injuries.Add(bicepInjury);
             _context.Exercises.Add(arms1);
 
             //seed database with arms exercises
@@ -339,6 +429,8 @@ namespace RWG.Context
             arms2.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms2.Video = @"https://youtube.com/shorts/6fcemy1cjkI?si=7esKgLxS2dXennAw";
+            //Adds exercise to Injury group
+            arms2.Injuries.Add(bicepInjury);
             _context.Exercises.Add(arms2);
 
             var arms3 = new Exercise();
@@ -347,6 +439,8 @@ namespace RWG.Context
             arms3.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms3.Video = @"https://youtube.com/shorts/36krJZYK_dU?si=HmQfQxYHWMMVKhRW";
+            //Adds exercise to Injury group
+            arms3.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms3);
 
             //seed database with arms exercises
@@ -356,6 +450,8 @@ namespace RWG.Context
             arms4.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms4.Video = @"https://youtube.com/shorts/Q3bO1Fh4734?si=ft7sFnBbbeVtVwDm";
+            //Adds exercise to Injury group
+            arms4.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms4);
 
             //seed database with arms exercises
@@ -365,6 +461,8 @@ namespace RWG.Context
             arms5.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms5.Video = @"https://youtube.com/shorts/NIp8MdPKTaI?si=YzxDmanCKwzx6bK5";
+            //Adds exercise to Injury group
+            arms5.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms5);
 
             //seed database with arms exercises
@@ -374,6 +472,8 @@ namespace RWG.Context
             arms6.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms6.Video = @"https://youtube.com/shorts/NvZKjiZ8NYc?si=kNJXkITZ5kdGAoS0";
+            //Adds exercise to Injury group
+            arms6.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms6);
 
             //seed database with arms exercises
@@ -383,6 +483,8 @@ namespace RWG.Context
             arms7.Description = "Home";
             //The video link to guide the user how to perform the exercise
             arms7.Video = @"https://youtube.com/shorts/PPTj-MW2tcs?si=Jl3hH79IcdIspm2Z";
+            //Adds exercise to Injury group
+            arms7.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms7);
 
             //seed database with arms exercises
@@ -392,6 +494,8 @@ namespace RWG.Context
             arms8.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms8.Video = @"https://youtube.com/shorts/N6paU6TGFWU?si=piXj1oNCvWzp6-2i";
+            //Adds exercise to Injury group
+            arms8.Injuries.Add(bicepInjury);
             _context.Exercises.Add(arms8);
 
             //seed database with arms exercises
@@ -401,6 +505,8 @@ namespace RWG.Context
             arms9.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms9.Video = @"https://www.youtube.com/shorts/RkcYuubJR54";
+            //Adds exercise to Injury group
+            arms9.Injuries.Add(bicepInjury);
             _context.Exercises.Add(arms9);
 
             //seed database with arms exercises
@@ -410,6 +516,8 @@ namespace RWG.Context
             arms10.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms10.Video = @"https://www.youtube.com/shorts/43rg7fBNP2w";
+            //Adds exercise to Injury group
+            arms10.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms10);
 
             //seed database with arms exercises
@@ -419,6 +527,8 @@ namespace RWG.Context
             arms11.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms11.Video = @"https://www.youtube.com/shorts/7oSbBVx73_c";
+            //Adds exercise to Injury group
+            arms11.Injuries.Add(bicepInjury);
             _context.Exercises.Add(arms11);
 
             //seed database with arms exercises
@@ -428,6 +538,8 @@ namespace RWG.Context
             arms12.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             arms12.Video = @"https://www.youtube.com/shorts/gTrlbuuMufQ";
+            //Adds exercise to Injury group
+            arms12.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms12);
 
             var arms13 = new Exercise();
@@ -436,6 +548,8 @@ namespace RWG.Context
             arms13.Description = "Home";
             //The video link to guide the user how to perform the exercise
             arms13.Video = @"https://www.youtube.com/shorts/S8vL5DK04fU";
+            //Adds exercise to Injury group
+            arms13.Injuries.Add(tricepInjury);
             _context.Exercises.Add(arms13);
 
             var arms14 = new Exercise();
@@ -444,10 +558,12 @@ namespace RWG.Context
             arms14.Description = "Home";
             //The video link to guide the user how to perform the exercise
             arms14.Video = @"https://www.youtube.com/shorts/vB6ZR_wl9bQ";
+            //Adds exercise to Injury group
+
             _context.Exercises.Add(arms14);
 
 
-            /*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
             
             //Shoulders Exercises
@@ -460,6 +576,8 @@ namespace RWG.Context
             shoulders1.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders1.Video = @"https://www.youtube.com/shorts/DN3WXJlB1Q4";
+            //Adds exercise to Injury group
+            shoulders1.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders1);
 
             //seed database with shoulders exercises
@@ -469,6 +587,8 @@ namespace RWG.Context
             shoulders2.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders2.Video = @"https://www.youtube.com/shorts/9bERtRKo4UY";
+            //Adds exercise to Injury group
+            shoulders2.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders2);
 
             //seed database with shoulders exercises
@@ -478,6 +598,8 @@ namespace RWG.Context
             shoulders3.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders3.Video = @"https://www.youtube.com/shorts/JIhbYYA1Q90";
+            //Adds exercise to Injury group
+            shoulders3.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders3);
 
             //seed database with shoulders exercises
@@ -487,6 +609,8 @@ namespace RWG.Context
             shoulders4.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders4.Video = @"https://www.youtube.com/shorts/1AmmsXlf8MU";
+            //Adds exercise to Injury group
+            shoulders4.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders4);
 
             //seed database with shoulders exercises
@@ -496,6 +620,8 @@ namespace RWG.Context
             shoulders5.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders5.Video = @"https://www.youtube.com/shorts/yHx8wPv4RPo";
+            //Adds exercise to Injury group
+            shoulders5.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders5);
 
             //seed database with shoulders exercises
@@ -505,6 +631,8 @@ namespace RWG.Context
             shoulders6.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders6.Video = @"https://www.youtube.com/shorts/PqAUOn-RmFA";
+            //Adds exercise to Injury group
+            shoulders6.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders6);
 
             //seed database with shoulders exercises
@@ -514,6 +642,8 @@ namespace RWG.Context
             shoulders7.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders7.Video = @"https://www.youtube.com/shorts/KAEE2N4YnBE";
+            //Adds exercise to Injury group
+            shoulders7.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders7);
 
             //seed database with shoulders exercises
@@ -523,6 +653,8 @@ namespace RWG.Context
             shoulders8.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders8.Video = @"https://www.youtube.com/shorts/LJN-sT_6OYY";
+            //Adds exercise to Injury group
+            shoulders8.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders8);
 
             //seed database with shoulders exercises
@@ -532,6 +664,8 @@ namespace RWG.Context
             shoulders9.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders9.Video = @"https://www.youtube.com/shorts/ppVR9oF32K0";
+            //Adds exercise to Injury group
+            shoulders9.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders9);
 
             //seed database with shoulders exercises
@@ -541,6 +675,8 @@ namespace RWG.Context
             shoulders10.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             shoulders10.Video = @"https://www.youtube.com/shorts/TxoDSfcObdU";
+            //Adds exercise to Injury group
+            shoulders10.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders10);
 
             //seed database with shoulders exercises
@@ -550,6 +686,8 @@ namespace RWG.Context
             shoulders11.Description = "Home";
             //The video link to guide the user how to perform the exercise
             shoulders11.Video = @"https://www.youtube.com/shorts/RmKUhj62_9c";
+            //Adds exercise to Injury group
+            shoulders11.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders11);
 
             //seed database with shoulders exercises
@@ -559,6 +697,8 @@ namespace RWG.Context
             shoulders12.Description = "Home";
             //The video link to guide the user how to perform the exercise
             shoulders12.Video = @"https://www.youtube.com/shorts/6446ZMlWpqI";
+            //Adds exercise to Injury group
+            shoulders12.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders12);
 
             //seed database with shoulders exercises
@@ -568,6 +708,8 @@ namespace RWG.Context
             shoulders13.Description = "Home";
             //The video link to guide the user how to perform the exercise
             shoulders13.Video = @"https://www.youtube.com/shorts/q5sbqedk5tc";
+            //Adds exercise to Injury group
+            shoulders13.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders13);
 
 
@@ -578,6 +720,8 @@ namespace RWG.Context
             shoulders14.Description = "Home";
             //The video link to guide the user how to perform the exercise
             shoulders14.Video = @"https://www.youtube.com/shorts/xBM-qIgkk6E";
+            //Adds exercise to Injury group
+            shoulders14.Injuries.Add(shoulderInjury);
             _context.Exercises.Add(shoulders14);
 
 /*----------------------------------------------------------------------------*/
@@ -592,6 +736,8 @@ namespace RWG.Context
             legs1.Description = "Home";
             //The video link to guide the user how to perform the exercise
             legs1.Video = @"https://www.youtube.com/shorts/I7Nk1RMtcLs";
+            //Adds exercise to Injury group
+            legs1.Injuries.Add(legInjury);
             _context.Exercises.Add(legs1);
 
             //seed database with legs exercises
@@ -601,6 +747,8 @@ namespace RWG.Context
             legs2.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             legs2.Video = @"https://www.youtube.com/shorts/gslEzVggur8";
+            //Adds exercise to Injury group
+            legs2.Injuries.Add(legInjury);
             _context.Exercises.Add(legs2);
 
             //seed database with legs exercises
@@ -610,6 +758,8 @@ namespace RWG.Context
             legs3.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             legs3.Video = @"https://www.youtube.com/shorts/yq7MQCWMgg8";
+            //Adds exercise to Injury group
+            legs3.Injuries.Add(legInjury);
             _context.Exercises.Add(legs3);
 
             //seed database with legs exercises
@@ -619,6 +769,8 @@ namespace RWG.Context
             legs4.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             legs4.Video = @"https://www.youtube.com/shorts/ahaJTts1f3s";
+            //Adds exercise to Injury group
+            legs4.Injuries.Add(legInjury);
             _context.Exercises.Add(legs4);
 
             //seed database with legs exercises
@@ -628,6 +780,8 @@ namespace RWG.Context
             legs5.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             legs5.Video = @"https://www.youtube.com/shorts/D1Zn0mBw4DE";
+            //Adds exercise to Injury group
+            legs5.Injuries.Add(legInjury);
             _context.Exercises.Add(legs5);
 
             //seed database with legs exercises
@@ -637,6 +791,8 @@ namespace RWG.Context
             legs6.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             legs6.Video = @"https://www.youtube.com/shorts/HeNjxoJhyow";
+            //Adds exercise to Injury group
+            legs6.Injuries.Add(legInjury);
             _context.Exercises.Add(legs6);
 
             //seed database with legs exercises
@@ -646,6 +802,8 @@ namespace RWG.Context
             legs7.Description = "Both";
             //The video link to guide the user how to perform the exercise
             legs7.Video = @"https://www.youtube.com/shorts/bwhl_9jN_3o";
+            //Adds exercise to Injury group
+            legs7.Injuries.Add(legInjury);
             _context.Exercises.Add(legs7);
 
             //seed database with legs exercises
@@ -655,6 +813,8 @@ namespace RWG.Context
             legs8.Description = "Gym";
             //The video link to guide the user how to perform the exercise
             legs8.Video = @"https://www.youtube.com/shorts/eHLuROg0FSI";
+            //Adds exercise to Injury group
+            legs8.Injuries.Add(legInjury);
             _context.Exercises.Add(legs8);
 
             //seed database with legs exercises
@@ -664,6 +824,8 @@ namespace RWG.Context
             legs9.Description = "Both";
             //The video link to guide the user how to perform the exercise
             legs9.Video = @"https://www.youtube.com/shorts/fOfPwmb5FXU";
+            //Adds exercise to Injury group
+            legs9.Injuries.Add(legInjury);
             _context.Exercises.Add(legs9);
 
             //seed database with legs exercises
@@ -673,6 +835,8 @@ namespace RWG.Context
             legs10.Description = "Both";
             //The video link to guide the user how to perform the exercise
             legs10.Video = @"https://www.youtube.com/shorts/uODWo4YqbT8";
+            //Adds exercise to Injury group
+            legs10.Injuries.Add(legInjury);
             _context.Exercises.Add(legs10);
             
             

@@ -17,6 +17,21 @@ namespace RWG.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.24");
 
+            modelBuilder.Entity("ExerciseInjury", b =>
+                {
+                    b.Property<int>("ExercisesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("InjuriesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ExercisesId", "InjuriesId");
+
+                    b.HasIndex("InjuriesId");
+
+                    b.ToTable("ExerciseInjury");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -168,6 +183,21 @@ namespace RWG.Migrations
                     b.ToTable("Exercises");
                 });
 
+            modelBuilder.Entity("RWG.Models.Injury", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Injuries");
+                });
+
             modelBuilder.Entity("RWG.Models.Progress", b =>
                 {
                     b.Property<int>("Id")
@@ -316,6 +346,21 @@ namespace RWG.Migrations
                     b.HasIndex("WorkoutId");
 
                     b.ToTable("WorkoutExercises");
+                });
+
+            modelBuilder.Entity("ExerciseInjury", b =>
+                {
+                    b.HasOne("RWG.Models.Exercise", null)
+                        .WithMany()
+                        .HasForeignKey("ExercisesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RWG.Models.Injury", null)
+                        .WithMany()
+                        .HasForeignKey("InjuriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

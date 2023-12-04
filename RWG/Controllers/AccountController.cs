@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using RWG.Context;
 using RWG.Models;
 
 
@@ -14,18 +15,22 @@ namespace RWG.Controllers
     public class AccountController : Controller
     {
         private UserManager<User> _userManager;
+        private DatabaseContext _databaseContext;
         private SignInManager<User> _signInManager;
+        
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, DatabaseContext databaseContext)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _databaseContext = databaseContext;
         }
 
 
         public IActionResult Register()
         {
             return View();
+
         }
 
         //Register
@@ -40,6 +45,7 @@ namespace RWG.Controllers
             if (viewModel.ConfirmPassword != viewModel.ConfirmPassword)
                 return RedirectToAction("Register");
 
+
             //To save the user's data in the user variable
             var user = new User();
             user.UserName = viewModel.Email;
@@ -53,9 +59,19 @@ namespace RWG.Controllers
             if (result.Succeeded)
                 return RedirectToAction("Login");
 
-        //Otherwise, keeps the user in the Register page
-            return RedirectToAction("Register");
+            //If account is already registered, this error messages pops up
+            ModelState.AddModelError("Error", "This Email is already registered.");
+
+            //as part of my testing, i tried to comment out this line 67 and try write what is on line 69
+            //Otherwise, keeps the user in the Register page
+            //return RedirectToAction("Register");
+
+            //Trying to change it to return the viewModel instead of to "Register" page
+            return View(viewModel);
+
         }
+        
+
 
         public IActionResult Login()
         {
@@ -64,7 +80,7 @@ namespace RWG.Controllers
         
 
         //Login
-        [HttpPost]
+        [HttpPost] //Retrieves the data entered by the user in the website
         public async Task<IActionResult> Login(LoginViewModel viewModel)
         {
             //checks if data provided is valid or not while logging in
