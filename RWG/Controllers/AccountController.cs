@@ -42,7 +42,7 @@ namespace RWG.Controllers
                 return RedirectToAction("Register");
 
             //checks if data entetred is the same as in "password" and "Confirm password" field
-            if (viewModel.ConfirmPassword != viewModel.ConfirmPassword)
+            if (viewModel.Password != viewModel.ConfirmPassword)
                 return RedirectToAction("Register");
 
 

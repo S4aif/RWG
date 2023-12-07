@@ -185,35 +185,13 @@ namespace RWG.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Progresses",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Set = table.Column<int>(type: "INTEGER", nullable: false),
-                    Reps = table.Column<int>(type: "INTEGER", nullable: false),
-                    Weight = table.Column<double>(type: "REAL", nullable: false),
-                    Date = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    UserId = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Progresses", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Progresses_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Workouts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    UserId = table.Column<string>(type: "TEXT", nullable: true)
+                    UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -222,7 +200,8 @@ namespace RWG.Migrations
                         name: "FK_Workouts_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -250,7 +229,55 @@ namespace RWG.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WorkoutExercises",
+                name: "ExerciseWorkout",
+                columns: table => new
+                {
+                    ExercisesId = table.Column<int>(type: "INTEGER", nullable: false),
+                    WorkoutsId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExerciseWorkout", x => new { x.ExercisesId, x.WorkoutsId });
+                    table.ForeignKey(
+                        name: "FK_ExerciseWorkout_Exercises_ExercisesId",
+                        column: x => x.ExercisesId,
+                        principalTable: "Exercises",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ExerciseWorkout_Workouts_WorkoutsId",
+                        column: x => x.WorkoutsId,
+                        principalTable: "Workouts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "InjuryWorkout",
+                columns: table => new
+                {
+                    InjuriesId = table.Column<int>(type: "INTEGER", nullable: false),
+                    WorkoutsId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InjuryWorkout", x => new { x.InjuriesId, x.WorkoutsId });
+                    table.ForeignKey(
+                        name: "FK_InjuryWorkout_Injuries_InjuriesId",
+                        column: x => x.InjuriesId,
+                        principalTable: "Injuries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InjuryWorkout_Workouts_WorkoutsId",
+                        column: x => x.WorkoutsId,
+                        principalTable: "Workouts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Progresses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -258,20 +285,27 @@ namespace RWG.Migrations
                     Set = table.Column<int>(type: "INTEGER", nullable: false),
                     Reps = table.Column<int>(type: "INTEGER", nullable: false),
                     Weight = table.Column<double>(type: "REAL", nullable: false),
+                    WorkoutId = table.Column<int>(type: "INTEGER", nullable: false),
                     ExerciseId = table.Column<int>(type: "INTEGER", nullable: false),
-                    WorkoutId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Date = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    UserId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WorkoutExercises", x => x.Id);
+                    table.PrimaryKey("PK_Progresses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WorkoutExercises_Exercises_ExerciseId",
+                        name: "FK_Progresses_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Progresses_Exercises_ExerciseId",
                         column: x => x.ExerciseId,
                         principalTable: "Exercises",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_WorkoutExercises_Workouts_WorkoutId",
+                        name: "FK_Progresses_Workouts_WorkoutId",
                         column: x => x.WorkoutId,
                         principalTable: "Workouts",
                         principalColumn: "Id",
@@ -321,18 +355,28 @@ namespace RWG.Migrations
                 column: "InjuriesId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ExerciseWorkout_WorkoutsId",
+                table: "ExerciseWorkout",
+                column: "WorkoutsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InjuryWorkout_WorkoutsId",
+                table: "InjuryWorkout",
+                column: "WorkoutsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Progresses_ExerciseId",
+                table: "Progresses",
+                column: "ExerciseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Progresses_UserId",
                 table: "Progresses",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WorkoutExercises_ExerciseId",
-                table: "WorkoutExercises",
-                column: "ExerciseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_WorkoutExercises_WorkoutId",
-                table: "WorkoutExercises",
+                name: "IX_Progresses_WorkoutId",
+                table: "Progresses",
                 column: "WorkoutId");
 
             migrationBuilder.CreateIndex(
@@ -362,10 +406,13 @@ namespace RWG.Migrations
                 name: "ExerciseInjury");
 
             migrationBuilder.DropTable(
-                name: "Progresses");
+                name: "ExerciseWorkout");
 
             migrationBuilder.DropTable(
-                name: "WorkoutExercises");
+                name: "InjuryWorkout");
+
+            migrationBuilder.DropTable(
+                name: "Progresses");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

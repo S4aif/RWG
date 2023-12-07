@@ -1,115 +1,128 @@
-﻿<div class="card">
+﻿@model List<Injury>
+
+<div class="card">
     <div class="card-body bg-light">
         <h4 class="card-title"> Create your Workout</h4>
 
 
         <form class="row g-3 needs-validation" method="post" action="@Url.Action("Create", "Workout")" noValidate>
 
+            @* Injury 1 *@
             <div class="card-body">
                 Select your first injury
             </div>
             @*Allows users to select from their current injuries*@
             @*Adding 'name' attributes to select elements in WorkoutController*@
             <select class="form-select" aria-label="Injury1" name="Injury1">
-                <option selected>None</option>
-                <option value="1">Leg Injury</option>
-                <option value="2">Shoulder Injury</option>
-                <option value="3">Bicep Injury</option>
-                <option value="4">Tricep Injury</option>
-                <option value="5">Chest Injury</option>
-                <option value="6">Back Injury</option>
+                <option value="0" selected>None</option>
+                @{
+                    foreach (var injury in Model)
+                    {
+                        <option value="@injury.Id">@injury.Name</option>
+
+                    }
+                }
             </select>
 
+
+@*--------------------------------------------------------------------------------------------------------------------*@
+
+
+            @* Injury 2 *@
             <div class="card-body">
                 Select your Second injury
             </div>
             @*Allows users to select from their current injuries*@
             @*Adding 'name' attributes to select elements in WorkoutController*@
             <select class="form-select" aria-label="Injury2" name="Injury2">
-                <option selected>None</option>
-                <option value="1">Leg Injury</option>
-                <option value="2">Shoulder Injury</option>
-                <option value="3">Bicep Injury</option>
-                <option value="4">Tricep Injury</option>
-                <option value="5">Chest Injury</option>
-                <option value="6">Back Injury</option>
+                <option value="0" selected>None</option>
+                @{
+                    foreach (var injury in Model)
+                    {
+                        <option value="@injury.Id">@injury.Name</option>
+
+                    }
+                }
             </select>
 
+@*--------------------------------------------------------------------------------------------------------------------*@
 
+            @* Injury 3 *@
             <div class="card-body">
                 Select your Third injury
             </div>
             @*Allows users to select from their current injuries*@
             @*Adding 'name' attributes to select elements in WorkoutController*@
             <select class="form-select" aria-label="Injury3" name="Injury3">
-                <option selected>None</option>
-                <option value="1">Leg Injury</option>
-                <option value="2">Shoulder Injury</option>
-                <option value="3">Bicep Injury</option>
-                <option value="4">Tricep Injury</option>
-                <option value="5">Chest Injury</option>
-                <option value="6">Back Injury</option>
+                <option value="0" selected>None</option>
+                @{
+                    foreach (var injury in Model)
+                    {
+                        <option value="@injury.Id">@injury.Name</option>
+
+                    }
+                }
             </select>
 
+@*--------------------------------------------------------------------------------------------------------------------*@
 
+            @* Injury 4 *@
             <div class="card-body">
                 Select your Fourth injury
             </div>
             @*Allows users to select from their current injuries*@
             @*Adding 'name' attributes to select elements in WorkoutController*@
             <select class="form-select" aria-label="Injury4" name="Injury4">
-                <option selected>None</option>
-                <option value="1">Leg Injury</option>
-                <option value="2">Shoulder Injury</option>
-                <option value="3">Bicep Injury</option>
-                <option value="4">Tricep Injury</option>
-                <option value="5">Chest Injury</option>
-                <option value="6">Back Injury</option>
+                <option value="0" selected>None</option>
+                @{
+                    foreach (var injury in Model)
+                    {
+                        <option value="@injury.Id">@injury.Name</option>
+
+                    }
+                }
             </select>
 
 
+@*--------------------------------------------------------------------------------------------------------------------*@
+
+            @* Injury 5 *@
             <div class="card-body">
                 Select your Fifth injury
             </div>
             @*Allows users to select from their current injuries*@
             @*Adding 'name' attributes to select elements in WorkoutController*@
             <select class="form-select" aria-label="Injury5" name="Injury5">
-                <option selected>None</option>
-                <option value="1">Leg Injury</option>
-                <option value="2">Shoulder Injury</option>
-                <option value="3">Bicep Injury</option>
-                <option value="4">Tricep Injury</option>
-                <option value="5">Chest Injury</option>
-                <option value="6">Back Injury</option>
+                <option value="0" selected>None</option>
+                @{
+                    foreach (var injury in Model)
+                    {
+                        <option value="@injury.Id">@injury.Name</option>
+
+                    }
+                }
             </select>
 
+@*--------------------------------------------------------------------------------------------------------------------*@
+
+            @* Injury 6 *@
             <div class="card-body">
                 Select your Sixth injury
             </div>
             @*Allows users to select from their current injuries*@
             @*Adding 'name' attributes to select elements in WorkoutController*@
             <select class="form-select" aria-label="Injury6" name="Injury6">
-                <option selected>None</option>
-                <option value="1">Leg Injury</option>
-                <option value="2">Shoulder Injury</option>
-                <option value="3">Bicep Injury</option>
-                <option value="4">Tricep Injury</option>
-                <option value="5">Chest Injury</option>
-                <option value="6">Back Injury</option>
+                <option value="0" selected>None</option>
+                @{
+                    foreach (var injury in Model)
+                    {
+                        <option value="@injury.Id">@injury.Name</option>
+
+                    }
+                }
             </select>
 
-            @*Hidden Input field to store number of injuries selected*@
-            <input type="hidden" name="NumberOfInjuries" value="6">
-
-            @*--------------------------------------------------------------------------------------------------------------------*@
-            <div class="card-body">
-                Select your Equipment availability
-            </div>
-            <select class="form-select" aria-label="Equipment" name="Equipment">
-                <option selected>Both</option>
-                <option value="1">Gym Equipment</option>
-                <option value="2">Home Equipment</option>
-            </select>
+@*--------------------------------------------------------------------------------------------------------------------*@
 
             <div class="col-md-6">
                 <button type="submit" class="btn btn-primary">Submit</button>

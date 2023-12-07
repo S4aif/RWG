@@ -11,7 +11,7 @@ using RWG.Context;
 namespace RWG.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231204144628_initial")]
+    [Migration("20231207103157_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,36 @@ namespace RWG.Migrations
                     b.HasIndex("InjuriesId");
 
                     b.ToTable("ExerciseInjury");
+                });
+
+            modelBuilder.Entity("ExerciseWorkout", b =>
+                {
+                    b.Property<int>("ExercisesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("WorkoutsId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ExercisesId", "WorkoutsId");
+
+                    b.HasIndex("WorkoutsId");
+
+                    b.ToTable("ExerciseWorkout");
+                });
+
+            modelBuilder.Entity("InjuryWorkout", b =>
+                {
+                    b.Property<int>("InjuriesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("WorkoutsId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("InjuriesId", "WorkoutsId");
+
+                    b.HasIndex("WorkoutsId");
+
+                    b.ToTable("InjuryWorkout");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -209,6 +239,9 @@ namespace RWG.Migrations
                     b.Property<DateOnly>("Date")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("ExerciseId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Reps")
                         .HasColumnType("INTEGER");
 
@@ -221,9 +254,16 @@ namespace RWG.Migrations
                     b.Property<double>("Weight")
                         .HasColumnType("REAL");
 
+                    b.Property<int>("WorkoutId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("ExerciseId");
+
                     b.HasIndex("UserId");
+
+                    b.HasIndex("WorkoutId");
 
                     b.ToTable("Progresses");
                 });
@@ -311,6 +351,7 @@ namespace RWG.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -318,36 +359,6 @@ namespace RWG.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Workouts");
-                });
-
-            modelBuilder.Entity("RWG.Models.WorkoutExercise", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ExerciseId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Reps")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("Set")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("WorkoutId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExerciseId");
-
-                    b.HasIndex("WorkoutId");
-
-                    b.ToTable("WorkoutExercises");
                 });
 
             modelBuilder.Entity("ExerciseInjury", b =>
@@ -361,6 +372,36 @@ namespace RWG.Migrations
                     b.HasOne("RWG.Models.Injury", null)
                         .WithMany()
                         .HasForeignKey("InjuriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ExerciseWorkout", b =>
+                {
+                    b.HasOne("RWG.Models.Exercise", null)
+                        .WithMany()
+                        .HasForeignKey("ExercisesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RWG.Models.Workout", null)
+                        .WithMany()
+                        .HasForeignKey("WorkoutsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("InjuryWorkout", b =>
+                {
+                    b.HasOne("RWG.Models.Injury", null)
+                        .WithMany()
+                        .HasForeignKey("InjuriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RWG.Models.Workout", null)
+                        .WithMany()
+                        .HasForeignKey("WorkoutsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -418,28 +459,18 @@ namespace RWG.Migrations
 
             modelBuilder.Entity("RWG.Models.Progress", b =>
                 {
-                    b.HasOne("RWG.Models.User", null)
-                        .WithMany("Progresses")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("RWG.Models.Workout", b =>
-                {
-                    b.HasOne("RWG.Models.User", null)
-                        .WithMany("Workouts")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("RWG.Models.WorkoutExercise", b =>
-                {
                     b.HasOne("RWG.Models.Exercise", "Exercise")
-                        .WithMany("WorkoutExercises")
+                        .WithMany()
                         .HasForeignKey("ExerciseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("RWG.Models.User", null)
+                        .WithMany("Progresses")
+                        .HasForeignKey("UserId");
+
                     b.HasOne("RWG.Models.Workout", "Workout")
-                        .WithMany("WorkoutExercises")
+                        .WithMany()
                         .HasForeignKey("WorkoutId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -449,9 +480,15 @@ namespace RWG.Migrations
                     b.Navigation("Workout");
                 });
 
-            modelBuilder.Entity("RWG.Models.Exercise", b =>
+            modelBuilder.Entity("RWG.Models.Workout", b =>
                 {
-                    b.Navigation("WorkoutExercises");
+                    b.HasOne("RWG.Models.User", "User")
+                        .WithMany("Workouts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RWG.Models.User", b =>
@@ -459,11 +496,6 @@ namespace RWG.Migrations
                     b.Navigation("Progresses");
 
                     b.Navigation("Workouts");
-                });
-
-            modelBuilder.Entity("RWG.Models.Workout", b =>
-                {
-                    b.Navigation("WorkoutExercises");
                 });
 #pragma warning restore 612, 618
         }

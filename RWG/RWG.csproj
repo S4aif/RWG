@@ -21,6 +21,7 @@
     <None Remove="Views\Account\" />
     <None Remove="Views\Shared\MvcGrid\" />
     <None Remove="Views\Workout\" />
+    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
@@ -30,6 +31,7 @@
     <Folder Include="wwwroot\css\mvc-grid\fonts\" />
     <Folder Include="wwwroot\js\mvc-grid\" />
     <Folder Include="Views\Workout\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\css\mvc-grid\" />
