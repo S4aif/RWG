@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
 using RWG.Context;
 using RWG.Models;
 
@@ -73,15 +74,19 @@ namespace RWG.Controllers
         
 
 
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl, string error)
         {
-            return View();
+            var viewModel = new LoginViewModel();
+            viewModel.ReturnUrl = returnUrl;
+            viewModel.Error = error;
+            return View(viewModel);
+            
         }
         
 
         //Login
         [HttpPost] //Retrieves the data entered by the user in the website
-        public async Task<IActionResult> Login(LoginViewModel viewModel)
+        public async Task<ActionResult> Login(LoginViewModel viewModel)
         {
             //checks if data provided is valid or not while logging in
             if (!ModelState.IsValid)
@@ -95,14 +100,14 @@ namespace RWG.Controllers
 
             await _signInManager.SignOutAsync();
 
+            // when details match, user is logged in and is sent to home page
             var result = await _signInManager.PasswordSignInAsync(user, viewModel.Password, false, false);
             if (result.Succeeded)
-                return RedirectToAction("Index", "Home");
+                return Redirect(viewModel.ReturnUrl ?? "/");
 
-            return RedirectToAction("Login");
-
-            //user.FirstName = viewModel.FirstName;
-            //user.Surname = viewModel.Surname;
+            // else, send back to login with error message
+            viewModel.Error = "Invalid username or password";
+            return RedirectToAction("Login", new { viewModel.ReturnUrl, viewModel.Error });
         }
 
         //when a new login happens, it logs out any device that was logged in before 

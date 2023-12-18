@@ -8,15 +8,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>();
 builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<DatabaseContext>().AddDefaultTokenProviders();
+// Register the SeedExtension as a scoped service in the dependency injection container
 builder.Services.AddScoped<SeedExtension>();
 
 
 
+
+// Build the application
 var app = builder.Build();
-//seed the database
+// Create a scope within the application services to resolve dependencies
 using var scope = app.Services.CreateScope();
+// Retrieve the SeedExtension service from the service provider
 var seeder = scope.ServiceProvider.GetService<SeedExtension>();
+// Ensure that the SeedExtension service is not null before attempting to use it
+// Seed the database asynchronously by calling the SeedAsync method
 await seeder!.SeedAsync();
+
 
 
 // Configure the HTTP request pipeline.

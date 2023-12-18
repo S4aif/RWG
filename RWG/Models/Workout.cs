@@ -9,6 +9,8 @@ namespace RWG.Models
         public List<Injury> Injuries { get; set; }
         public List<Exercise> Exercises { get; set; }
         public User User { get; set; }
+
+        //public bool IsArchived { get; set; }
     }
 }
 

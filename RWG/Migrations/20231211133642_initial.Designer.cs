@@ -11,7 +11,7 @@ using RWG.Context;
 namespace RWG.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231207103157_initial")]
+    [Migration("20231211133642_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -236,7 +236,7 @@ namespace RWG.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateOnly>("Date")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ExerciseId")
@@ -465,7 +465,7 @@ namespace RWG.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RWG.Models.User", null)
+                    b.HasOne("RWG.Models.User", "User")
                         .WithMany("Progresses")
                         .HasForeignKey("UserId");
 
@@ -476,6 +476,8 @@ namespace RWG.Migrations
                         .IsRequired();
 
                     b.Navigation("Exercise");
+
+                    b.Navigation("User");
 
                     b.Navigation("Workout");
                 });

@@ -1,7 +1,18 @@
 ﻿@model List<Injury>
 
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @* Goes back to the home page*@
+            <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+            @* shows the user that they are currently at saved workouts page *@
+            <li class="breadcrumb-item active" aria-current="page">Create Workout</li>
+        </ol>
+    </nav>
+</div>
+
 <div class="card">
-    <div class="card-body bg-light">
+    <div class="card-body bg-info-subtle">
         <h4 class="card-title"> Create your Workout</h4>
 
 
@@ -18,6 +29,7 @@
                 @{
                     foreach (var injury in Model)
                     {
+                        // pass the injury by id
                         <option value="@injury.Id">@injury.Name</option>
 
                     }
@@ -39,6 +51,7 @@
                 @{
                     foreach (var injury in Model)
                     {
+                        // pass the injury by id
                         <option value="@injury.Id">@injury.Name</option>
 
                     }

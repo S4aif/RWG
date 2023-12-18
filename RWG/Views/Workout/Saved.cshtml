@@ -1,12 +1,53 @@
-﻿<div class="card">
+﻿@{
+    ViewData["Title"] = "Saved Workouts";
+}
+
+@model IQueryable<Workout>
+@* The heuristic where it allows the user to navigate freely and more comfrotably *@
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            @* Goes back to the home page*@
+            <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+            @* shows the user that they are currently at saved workouts page *@
+            <li class="breadcrumb-item active" aria-current="page">Saved Workouts</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card mb-3">
     <div class="card-body bg-light">
-        <h4 class="card-title"> Your Saved Workouts</h4>
+        <h4 class="card-title">Saved Workouts</h4>
+        <div class="bg-white">
+            @* Displaying a grid for saved workouts *@
+            @(Html.Grid(Model)
+            .Build(columns =>
+            {
+                //Column: Workout Name
+                columns.Add(model => model.Name).Titled("Workout Name");
 
+                //Column: Start Exercise Button
+                columns.Add(model => Html.ActionLink("Start", "StartExercise", "Workout", new { id = model.Id } ,
+                    new { @class = "btn btn-success" })).Titled("Start");
 
-        <form class="row g-3 needs-validation" method="post" action="@Url.Action("Saved", "Workout")" noValidate>
+                //Column: Edit Workout Button
+                columns.Add(model => Html.ActionLink("Edit", "Edit", "Workout", new { model.Id },
+                    new { @class = "btn btn-secondary" })).Titled("Edit");
 
-            
+                //Column: View Progress Button
+                columns.Add(model => Html.ActionLink("View progress", "WorkoutList", "Progress",
+                    new { workoutId = model.Id, exerciseId = model.Id }, new { @class = "btn btn-info" })).Titled("View Progress");
 
-        </form>
+                //Column: Delete Workout Button
+                columns.Add(model => Html.ActionLink("Delete", "Delete", "Workout", new { model.Id },
+                    new { @class = "btn btn-danger" })).Titled("Delete");
+            })
+            .Using(GridFilterMode.Excel)
+            .Empty("No Workouts found")
+            .Filterable()
+            .Sortable()
+            .Pageable()
+            )
+        </div>
     </div>
 </div>

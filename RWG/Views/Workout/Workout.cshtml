@@ -1,16 +1,15 @@
-﻿    <h1>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-start">
-            <li class="btn btn-success">
-                <a class="btn" asp-area="" asp-controller="Workout" asp-action="Create">Create Workout</a>
-            </li>
-        </div>
-    </h1>
-
+﻿@* creates a new button redirecting to Create file *@
+<h1>
     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-start">
-        <li class="btn btn-primary">
-            <a class="btn" asp-area="" asp-controller="Workout" asp-action="Saved">Saved Workouts</a>
+        <li class="btn btn-success">
+            <a class="btn" asp-area="" asp-controller="Workout" asp-action="Create">Create Workout</a>
         </li>
     </div>
-@*<div class="btn btn-success">Create Workout</div>*@
-@*<div class="btn btn-primary">Saved Workouts</div>*@
+</h1>
 
+@* creates a new button redirecting to Saved file *@
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-start">
+    <li class="btn btn-primary">
+        <a class="btn" asp-area="" asp-controller="Workout" asp-action="Saved">Saved Workouts</a>
+    </li>
+</div>

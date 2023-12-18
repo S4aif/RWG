@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Start Exercise";
+}
+
+@model Workout
+
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+            <li class="breadcrumb-item">@Html.ActionLink("Saved workouts", "Saved", "Workout")</li>
+            <li class="breadcrumb-item active" aria-current="page">Start exercising</li>
+        </ol>
+    </nav>
+</div>
+
+@*Stopwatch*@
+<div class="wrapper">
+    <p>Stopwatch</p>
+    <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+    <button id="button-start">Start</button>
+    <button id="button-stop">Stop</button>
+    <button id="button-reset">Reset</button>
+</div>
+
+
+@*Countdown rest timer *@
+<div class="clock-wrap">
+    @*Clock element with class 'pro-0' (styling) *@
+    <div class="clock pro-0">
+        @*Span element to display the countdown number *@
+        <span class="count">0</span>
+    </div>
+</div>
+
+@*Action section for timer control *@
+<div class="action">
+    @*Input container for setting timer duration *@
+    <div class="input">
+        @*Input field for entering the timer duration in minutes with a minimum value of 1 *@
+        <input class="input-num" type="number" min="1" placeholder="Enter Minute">
+
+        @*Button to start the timer, identified by data-action attribute *@
+        <input data-action="start" class="input-btn" type="button" value="Start">
+    </div>
+        </div>
+
+
+<div class="card mb-3">
+    <div class="card-body bg-light">
+         @*Display the name of the workout*@ 
+        <h4 class="card-title">@Model.Name</h4>
+        <div class="bg-white">
+            @*Generate a grid for displaying exercises*@
+            @(Html
+                .Grid(Model.Exercises)
+                .Build(columns =>
+                {
+                    // Display the Name of the exercise
+                    columns.Add(model => model.Name).Titled("Name");
+                    // Display the Description of the exercise
+                    columns.Add(model => model.Description).Titled("Description");
+                    // Add a button to view progress for the specific exercise
+                    columns.Add(model => Html.ActionLink("View progress", "ExerciseProgress", "Progress",
+                        new { workoutId = Model.Id, exerciseId = model.Id }, new { @class = "btn btn-info" })).Titled("View Progress");
+
+                })
+                .Using(GridFilterMode.Excel)
+                .Empty("No exercises found")
+                .Filterable()
+                .Sortable()
+                .Pageable()
+
+            )
+        </div>
+    </div>
+</div>

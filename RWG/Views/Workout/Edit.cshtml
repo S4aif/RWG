@@ -1,0 +1,26 @@
+﻿@model Workout
+
+<div class="card">
+    <div class="card-body bg-light">
+        <h4 class="card-title">Edit Workout</h4>
+
+        <form id="add-list-form" method="post" action="@Url.Action("UpdateWorkout", "Workout")">
+            <div class="row g-3 mb-2">
+                @Html.AntiForgeryToken()
+                @*Hidden input field to store the workoutId*@
+                <input type="hidden" name="workoutId" value="@Model.Id" />
+
+                <div class="col-md-6">
+                    <label>Workout name</label>
+                    @*Input field for editing the workout name with the current value*@ 
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Workout name" value="@Model.Name" required />
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                 @*Submit button to save the changes*@
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

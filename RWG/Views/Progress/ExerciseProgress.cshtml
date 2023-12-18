@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Exercise Progress";
+}
+
+@model IQueryable<Progress>
+
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+            <li class="breadcrumb-item">@Html.ActionLink("Saved Workouts", "Saved", "Workout")</li>
+            <li class="breadcrumb-item">@Html.ActionLink("Start Exercising", "StartExercise", "Workout")</li>
+            <li class="breadcrumb-item active" aria-current="page">Exercise progress</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body bg-light">
+        <h4 class="card-title">Workout Progress</h4>
+        <div class="bg-white">
+            @(Html.Grid(Model)
+            .Build(columns =>
+            {
+                // Shows the workouts performed
+                columns.Add(progress => progress.Exercise.Name).Titled("Exercise Name");
+                columns.Add(Progress => Progress.Set).Titled("Sets");
+                columns.Add(Progress => Progress.Reps).Titled("Reps");
+                columns.Add(Progress => Progress.Weight).Titled("Weight lifted");
+                columns.Add(Progress => Progress.Date).Titled("Date performed");
+
+            })
+            .Using(GridFilterMode.Excel)
+            .Empty("No Progress found")
+            .Filterable()
+            .Sortable()
+            .Pageable()
+            )
+
+        </div>
+    </div>
+</div>

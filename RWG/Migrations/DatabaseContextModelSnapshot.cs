@@ -234,7 +234,7 @@ namespace RWG.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateOnly>("Date")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("ExerciseId")
@@ -463,7 +463,7 @@ namespace RWG.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RWG.Models.User", null)
+                    b.HasOne("RWG.Models.User", "User")
                         .WithMany("Progresses")
                         .HasForeignKey("UserId");
 
@@ -474,6 +474,8 @@ namespace RWG.Migrations
                         .IsRequired();
 
                     b.Navigation("Exercise");
+
+                    b.Navigation("User");
 
                     b.Navigation("Workout");
                 });
