@@ -11,7 +11,7 @@ using RWG.Context;
 namespace RWG.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20231211133642_initial")]
+    [Migration("20231219172615_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

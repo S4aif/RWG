@@ -1,45 +1,52 @@
 ﻿@{
-    ViewData["Title"] = "Start Exercise";
+    ViewData["Title"] = "Add Progress";
 }
 
 @model ProgressViewModel
 
 <div class="card">
     <div class="card-body bg-light">
+         @*Displaying Workout and Exercise information*@ 
         <h4 class="card-title">Workout: @Model.Workout.Name</h4>
         <h4 class="card-title">Exercise: @Model.Exercise.Name</h4>
+
+         @*Embedding Exercise Video*@ 
         <iframe width="560" height="315" src="@Model.Exercise.Video" frameborder="0" allowfullscreen></iframe>
     </div>
 
-
+     @*Adding Progress Section*@ 
+    <div class="card-body">
         <h4 class="card-title">Add progress</h4>
-    <form id="add-list-form" method="post" action="@Url.Action("AddProgress", "Workout")">
-        <div class="row g-3 mb-2">
-            @Html.AntiForgeryToken()
-            <input type="hidden" name="workoutId" value="@Model.Workout.Id" />
-            <input type="hidden" name="exerciseId" value="@Model.Exercise.Id" />
+        @*Form for adding progress*@ 
+        <form id="add-list-form" method="post" action="@Url.Action("AddProgress", "Workout")">
+            <div class="row g-3 mb-2">
+                 @*Hidden fields for Workout and Exercise IDs*@ 
+                <input type="hidden" name="workoutId" value="@Model.Workout.Id" />
+                <input type="hidden" name="exerciseId" value="@Model.Exercise.Id" />
 
-            <div class="col-md-3">
-                <label>Sets</label>
-                <input type="number" class="form-control" min="1" id="set" name="set" placeholder="Sets" required />
+                 @*Input field for Sets*@ 
+                <div class="col-md-3">
+                    <label>Sets</label>
+                    <input type="number" class="form-control" min="1" id="set" name="set" placeholder="Sets" required />
+                </div>
+
+                 @*Input field for Reps*@ 
+                <div class="col-md-3">
+                    <label>Reps</label>
+                    <input type="number" class="form-control" min="0" id="reps" name="reps" placeholder="Reps" required />
+                </div>
+
+                @*Input field for Weight*@
+                <div class="col-md-3">
+                    <label>Weight</label>
+                    <input type="number" class="form-control" min="0" id="weight" name="weight" placeholder="Weight" step="any" required />
+                </div>
+
+                 @*Button to submit progress*@ 
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Add Progress</button>
+                </div>
             </div>
-
-            <div class="col-md-3">
-                <label>Reps</label>
-                <input type="number" class="form-control" min="0" id="reps" name="reps" placeholder="Reps" required />
-            </div>
-
-            <div class="col-md-3">
-                <label>Weight</label>
-                <input type="number" class="form-control" min="0" id="weight" name="weight" placeholder="Weight" step="any" required />
-            </div>
-
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Add Progress</button>
-            </div>
-
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
-
-    

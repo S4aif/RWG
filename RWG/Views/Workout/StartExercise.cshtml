@@ -57,9 +57,13 @@
                 .Build(columns =>
                 {
                     // Display the Name of the exercise
-                    columns.Add(model => model.Name).Titled("Name");
+                    columns.Add(model => model.Name).Titled("Name")
+                    .RenderedAs(model => Html.ActionLink(model.Name, "AddProgress", "Workout",
+                                                new { workoutId = Model.Id, exerciseId = model.Id }));
+
                     // Display the Description of the exercise
                     columns.Add(model => model.Description).Titled("Description");
+
                     // Add a button to view progress for the specific exercise
                     columns.Add(model => Html.ActionLink("View progress", "ExerciseProgress", "Progress",
                         new { workoutId = Model.Id, exerciseId = model.Id }, new { @class = "btn btn-info" })).Titled("View Progress");

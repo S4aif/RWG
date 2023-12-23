@@ -172,7 +172,7 @@ namespace RWG.Controllers
 
             return View(workout);
         }
-//--------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------
         //to save the changes updated for the workouts
         [HttpPost]
         public IActionResult UpdateWorkout(EditWorkoutViewModel viewModel)
@@ -204,12 +204,14 @@ namespace RWG.Controllers
             var exercise = workout.Exercises.Single(exercise => exercise.Id == exerciseId);
             // add the ProgressViewModel (exercise and workout), to the viewModel
             var viewModel = new ProgressViewModel { Exercise = exercise, Workout = workout };
+
             return View(viewModel);
+
+
         }
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddProgressAsync(AddProgressViewModel viewModel)
         {
             // link progress inputted to the workout's id
@@ -234,11 +236,6 @@ namespace RWG.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("StartExercise", "Workout", new { id = viewModel.WorkoutId });
-        }
-
-        public IActionResult Quotes()
-        {
-            return View();
         }
     }
 }
